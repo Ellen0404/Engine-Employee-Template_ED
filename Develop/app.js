@@ -42,9 +42,12 @@ async function init() {
         const { name, id, email, role } = responses;
 
 
+
+
         async function roleChosen() {
             switch (role) {
                 case "Manager":
+
                     return managerRole(role);
 
                 case "Engineer":
@@ -54,7 +57,7 @@ async function init() {
                     return internRole(role);
 
                 default:
-                    return "There is no such position in this company"
+                    return "There is no such position in this company."
 
             }
         }
@@ -63,18 +66,7 @@ async function init() {
 
 
         async function managerRole() {
-            // prompts.next(
-            //     {
-            //         type: "input",
-            //         name: "officeNumber",
-            //         message: "What is Manager's office number?"
-            //     },
-            //     {
-            //         type: "confirm",
-            //         name: "addNewEmployee",
-            //         message: "Do you want to add another employee?"
-            //     }
-            // );
+
             const res = await inquirer.prompt([
                 {
                     type: "input",
@@ -88,6 +80,13 @@ async function init() {
                 }
             ]);
             const { officeNumber, addNewEmployee } = res;
+
+            // CREATING NEW MANAGER
+            const newManager = new Manager(name, id, email, officeNumber);
+            // functions and put info to HTML go here...
+            newManager.getRole();
+            newManager.getId();
+            newManager.getName();
             if (addNewEmployee) {
                 getUserInput();
 
@@ -110,6 +109,12 @@ async function init() {
                 }
             ]);
             const { github, addNewEmployee } = res1;
+
+            // CREATING NEW ENGINEER 
+            const newEngineer = new Engineer(name, id, email, github);
+            // functions and put info to HTML go here...
+
+
             if (addNewEmployee) {
                 getUserInput();
 
@@ -132,6 +137,11 @@ async function init() {
                 }
             ]);
             const { school, addNewEmployee } = res2;
+
+            // CREATING NEW Intern 
+            const newIntern = new Intern(name, id, email, school);
+            // functions and put info to HTML go here...
+
             if (addNewEmployee) {
                 getUserInput();
 
