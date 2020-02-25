@@ -15,35 +15,30 @@ async function init() {
         // QUESTIONS TO USER
         // var prompts = new Rx.Subject();
         // inquirer.prompt(prompts);
-        async function getUserInput(responses) {
-            await inquirer.prompt([
-                {
-                    type: "input",
-                    name: "name",
-                    message: "What is employee's name?"
-                },
-                {
-                    type: "input",
-                    name: "id",
-                    message: "What is employee's id?"
-                },
-                {
-                    type: "input",
-                    name: "email",
-                    message: "What is employee's email?"
-                },
-                {
-                    type: "list",
-                    message: "What is employee's role?",
-                    name: "role",
-                    choices: ["Manager", "Engineer", "Intern"]
-                }
-            ]);
-        }
 
-
-
-        getUserInput(responses);
+        const responses = await inquirer.prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is employee's name?"
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "What is employee's id?"
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "What is employee's email?"
+            },
+            {
+                type: "list",
+                message: "What is employee's role?",
+                name: "role",
+                choices: ["Manager", "Engineer", "Intern"]
+            }
+        ]);
         const { name, id, email, role } = responses;
 
 
@@ -97,30 +92,52 @@ async function init() {
                 getUserInput();
 
             } else {
-                console.log("Thank you");
+                console.log("Thank you foy using my Engine-Employee-Template!");
             }
         };
 
         async function engineerRole() {
-            inquirer.prompt([
+            const res1 = await inquirer.prompt([
                 {
                     type: "input",
                     name: "github",
                     message: "What is Engineer's GitHub username?"
+                },
+                {
+                    type: "confirm",
+                    name: "addNewEmployee",
+                    message: "Do you want to add another employee?"
                 }
             ]);
-            return github;
+            const { github, addNewEmployee } = res1;
+            if (addNewEmployee) {
+                getUserInput();
+
+            } else {
+                console.log("Thank you foy using my Engine-Employee-Template!");
+            }
         };
 
         async function internRole() {
-            inquirer.prompt([
+            const res2 = await inquirer.prompt([
                 {
                     type: "input",
                     name: "school",
                     message: "What is Intern's school?"
+                },
+                {
+                    type: "confirm",
+                    name: "addNewEmployee",
+                    message: "Do you want to add another employee?"
                 }
             ]);
-            return school;
+            const { school, addNewEmployee } = res2;
+            if (addNewEmployee) {
+                getUserInput();
+
+            } else {
+                console.log("Thank you foy using my Engine-Employee-Template!");
+            }
         }
 
 
