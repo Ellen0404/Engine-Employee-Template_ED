@@ -13,8 +13,7 @@ const render = require("./lib/htmlRenderer");
 async function init() {
     try {
         // QUESTIONS TO USER
-        // var prompts = new Rx.Subject();
-        // inquirer.prompt(prompts);
+
 
         const responses = await inquirer.prompt([
             {
