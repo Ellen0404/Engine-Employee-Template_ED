@@ -1,0 +1,42 @@
+body {
+    height: 100vh;
+    background-image: url(./apple-device-black-and-white-business-computer-295826.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+ 
+    }
+.jumbotron{
+    background-color: rgb(197, 133, 50, 0.95);
+}
+.card-header{
+    background-color: rgb(50, 70, 62);
+}
+h2,h3{
+    color:rgb(240, 237, 215);
+}
+h1{
+    color: rgb(21, 41, 33);
+    text-shadow: 2px 2px #669273;
+}
+.card-body{
+    background-color:  rgb(50, 70, 62);
+}
+/* @media (min-width: 576px){
+
+   .col-12 {
+       
+        margin-right: 40px;
+        margin-bottom: 0;
+        margin-left:0;
+    }
+  
+} */
+/* .card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    };
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+  } */
